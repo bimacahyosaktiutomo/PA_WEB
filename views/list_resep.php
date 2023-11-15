@@ -118,7 +118,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                                             <p class="card-text"><?php echo $rsp['deskripsi']; ?></p><br>
                                             <div class="card-text">
                                                 <?php
-                                                    $result = mysqli_query($conn, "SELECT resep.id_resep, IFNULL(ROUND(AVG(rating)), 0) AS avg_rating FROM rating 
+                                                    $result = mysqli_query($conn, "SELECT resep.id_resep, IFNULL(ROUND(AVG(rating)), 0) AS avg_rating, CAST(AVG(rating) AS DECIMAL(10,1)) AS rata_rata FROM rating 
                                                                                 RIGHT JOIN resep ON rating.id_resep = resep.id_resep WHERE resep.id_resep = " . $rsp['id_resep'] . "
                                                                                 GROUP BY resep.id_resep");
                                                     $ratingResult = mysqli_fetch_assoc($result);
@@ -128,6 +128,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                                                         $starClass = ($j < $averageRating) ? 'star' : 'empty-star';
                                                         echo '<span class="' . $starClass . '">&#9733</span>';
                                                     }
+                                                    echo '<span>   '.$ratingResult['rata_rata'].'</span>'
                                                 ?>
                                             </div>
                                         </div>

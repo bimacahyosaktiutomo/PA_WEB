@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2023 at 12:41 PM
+-- Generation Time: Nov 15, 2023 at 01:41 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -35,6 +35,14 @@ CREATE TABLE `rating` (
   `komentar` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `rating`
+--
+
+INSERT INTO `rating` (`id_rating`, `uid`, `id_resep`, `rating`, `komentar`) VALUES
+(3, 3, 2, 4, 'bvjasbjv'),
+(4, 3, 3, 3, 'kelass');
+
 -- --------------------------------------------------------
 
 --
@@ -54,7 +62,11 @@ CREATE TABLE `resep` (
 --
 
 INSERT INTO `resep` (`id_resep`, `uid`, `nama_resep`, `deskripsi`, `gambar`) VALUES
-(1, 1, 'tes', '123', '2023-10-29 04-13-07.tes.jpg');
+(2, 3, 'Nasi Goreng', 'Nasi dengan cita rasa bumbu ala tenggarong yang diambli dari resep leluhur chef Ifandi', '2023-11-14 09-46-24.Nasi Goreng.jpg'),
+(3, 3, 'Roti', 'Itu pastel anjay', '2023-11-14 09-49-02.Roti.jpg'),
+(4, 1, 'MMK', 'yang tau tau aja', 'NoImage.png'),
+(5, 1, 'logo', 'Tampang Rupawan Chef', 'ifandi.jpg'),
+(6, 1, 'lasagna', 'Makanan favorit kucing oren gendut', 'NoImage.png');
 
 -- --------------------------------------------------------
 
@@ -75,7 +87,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`uid`, `username`, `email`, `password`) VALUES
 (1, 'admin', 'admin@gmail.com', '$2y$10$V8k9G383svAvc0JZVOAqpO0OOL2Yh9.eoF4dVQNSPwGiWkxxqkrRG'),
-(2, 'Aldi', 'aldisolihin12@gmail.com', '$2y$10$62wAyDSsNzKVqOVsrieTPu5mYXhQQzbMjnS4kC55OJ/K0nbU6Y5sa');
+(2, 'Aldi', 'aldisolihin12@gmail.com', '$2y$10$62wAyDSsNzKVqOVsrieTPu5mYXhQQzbMjnS4kC55OJ/K0nbU6Y5sa'),
+(3, 'ifandi', 'ifandi@gmail.com', '$2y$10$NADZES63/XLCSxCk43ya7eqMBx6hQJalYy6gMnhW6dm4xNZYtd0.S');
 
 --
 -- Indexes for dumped tables
@@ -110,19 +123,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `id_rating` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_rating` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `resep`
 --
 ALTER TABLE `resep`
-  MODIFY `id_resep` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_resep` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
