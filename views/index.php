@@ -100,10 +100,10 @@ while ($row = mysqli_fetch_assoc($result)) {
                 <div class="konten-isi1">
                     <h1>Welcome To Ifandi's Taste</h1>
                     <p>
-                        Inilah tempatnya segala resep masakan enak! Ifandi telah siapkan beragam hidangan seru bergaya rumahan, tepat sebagai masakan sehari-hari.
+                        Inilah tempatnya segala resep masakan enak! Ifandi telah menyiapkan beragam hidangan seru bergaya rumahan, tepat sebagai masakan sehari-hari.
                     </p>
                     <ul class="text">
-                        <li><a href="list_resep.php" id="download">Lihat Menu</a></li>
+                        <li><a href="list_resep.php" id="download">Jelajahi Resep</a></li>
                     </ul>
                 </div>
                 <!-- <img src="../assets/Paimon.png" alt="paimon"> -->

@@ -699,6 +699,16 @@ footer {
     object-fit: cover;
 }
 
+.isi-resep {
+    flex-direction: column;
+    gap: 20px;
+    background: var(--primary-color);
+}
+
+.resep-inside {
+    color: var(--text);
+}
+
 @media (orientation: portrait) {
     .webicon {
         width: 15vh;

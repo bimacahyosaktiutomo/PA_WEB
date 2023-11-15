@@ -468,6 +468,10 @@ table, th, td{
     border-radius: 4px;
 }
 
+textarea {
+    resize: none;
+}
+
 .inputgambar{
     margin-top: 1vh;
     max-width: 100%;

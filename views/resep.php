@@ -56,18 +56,21 @@ while ($row = mysqli_fetch_assoc($result)) {
             </div>
         </nav>
         <section>
-            <div class="isi1">
+            <div class="isi1 isi-resep">
                 <?php $i = 1; foreach ($resep as $rsp) :?>                                                        
                 <img src="../assets/uploadedImg/<?php echo $rsp['gambar']; ?>" alt="" class="gambarResep">                                                                                          
                 <div class="konten-isi1">               
-                    <div class="card-text">
+                    <div class="card-text resep-inside">
                         <h2><?php echo $rsp['nama_resep']; ?> </h2>
                         <p><?php echo $rsp['deskripsi']; ?></p> 
+                        <p><?php echo $rsp['instruksi']; ?></p> 
+                        <p><?php echo $rsp['bahan']; ?></p> 
                     </div>
                 <?php $i++; endforeach; ?>                                        
                 </div>                
             </div>
         </section>
     </header>
+    <script src="../scripts/javascript.js"></script>
 </body>
 </html>

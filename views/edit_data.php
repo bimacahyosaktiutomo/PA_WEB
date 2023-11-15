@@ -26,6 +26,8 @@
     if (isset($_POST['ubah'])) {
         $nama = $_POST['nama'];
         $deskripsi = $_POST['deskripsi'];
+        $instruksi = $_POST['instruksi'];
+        $bahan = $_POST['bahan'];
         
         $gambar_lama = mysqli_query($conn, "SELECT gambar FROM resep where id_resep = $id"); 
         $row = mysqli_fetch_assoc($gambar_lama);
@@ -50,25 +52,18 @@
             }
 
             if (in_array($file_extension, $allowed_extensions)) {
-                    $x = explode('.',$gambar);
-                    $ekstensi = strtolower(end($x));
-                    $gambar_baru = "$tanggal.$nama.$ekstensi";
-                    move_uploaded_file($temp_file, "../assets/uploadedImg/".$gambar_baru);
-                    
+                $x = explode('.',$gambar);
+                $ekstensi = strtolower(end($x));
+                $gambar_baru = "$tanggal.$nama.$ekstensi";
+                move_uploaded_file($temp_file, "../assets/uploadedImg/".$gambar_baru);
+                $result = mysqli_query($conn, "UPDATE resep SET nama_resep='$nama', deskripsi='$deskripsi', instruksi='$instruksi', bahan='$bahan', gambar='$gambar_baru' WHERE id_resep = $id");
             } else {
-                $gambar_baru = 'NoImage.png';
+                $result = mysqli_query($conn, "UPDATE resep SET nama_resep='$nama', deskripsi='$deskripsi', instruksi='$instruksi', bahan='$bahan' WHERE id_resep = $id");
             }
         } else {
-            if($nama_file != "NoImage.png"){
-                if (file_exists($lokasi_file)) {
-                    unlink($lokasi_file);
-                } 
-            }
-
-            $gambar_baru = 'NoImage.png';
+            $result = mysqli_query($conn, "UPDATE resep SET nama_resep='$nama', deskripsi='$deskripsi', instruksi='$instruksi', bahan='$bahan' WHERE id_resep = $id");
         }
 
-        $result = mysqli_query($conn, "UPDATE resep SET nama_resep='$nama', deskripsi='$deskripsi', gambar='$gambar_baru' WHERE id_resep = $id");
         if ($result) {
             echo "
             <script>
@@ -102,8 +97,12 @@
                 <input type="text" name="nama" class="textfield" value="<?php echo $resep['nama_resep'] ?>" required>                                
                 <label for="deskripsi">Deskripsi*</label>
                 <input type="text" name="deskripsi" class="textfield" value="<?php echo $resep['deskripsi'] ?>" required>
+                <label for="bahan">Bahan*</label>
+                <textarea type="text" name="bahan" class="textfield" required><?php echo $resep['bahan'] ?></textarea>
+                <label for="instruksi">Instruksi*</label>
+                <textarea type="text" name="instruksi" class="textfield" required><?php echo $resep['instruksi'] ?></textarea>
                 <label for="gambar">Gambar</label>
-                <input type="file" name="gambar" class="inputgambar" required>
+                <input type="file" name="gambar" class="inputgambar" accept="image/*" >
                 <input type="submit" name="ubah" value="Edit Data" class="add-btn">
             </form>
         </div>

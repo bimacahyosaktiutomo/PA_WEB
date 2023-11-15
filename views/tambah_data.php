@@ -18,6 +18,8 @@
     if (isset($_POST['tambah'])) {
         $nama = $_POST['nama'];
         $deskripsi = $_POST['deskripsi'];
+        $instruksi = $_POST['instruksi'];
+        $bahan = $_POST['bahan'];
         
         // date dan timezone 
         date_default_timezone_set('Asia/Makassar');
@@ -42,7 +44,7 @@
             $gambar_baru = 'NoImage.png';
         }
         
-        $result = mysqli_query($conn, "INSERT INTO resep VALUES ('', $uid,'$nama','$deskripsi','$gambar_baru')");
+        $result = mysqli_query($conn, "INSERT INTO resep VALUES ('', $uid,'$nama','$deskripsi','$instruksi','$bahan','$gambar_baru')");
         if ($result) {
             echo "
             <script>
@@ -76,7 +78,11 @@
                 <label for="nama">Nama Resep*</label>
                 <input type="text" name="nama" class="textfield" required>                                
                 <label for="deskripsi">Deskripsi*</label>
-                <input type="text" name="deskripsi" class="textfield" required>
+                <input type="text" name="deskripsi" class="textfield instruksi" required>
+                <label for="instruksi">Instruksi*</label>
+                <textarea type="text" name="instruksi" class="textfield" required></textarea>
+                <label for="bahan">Bahan*</label>
+                <textarea type="text" name="bahan" class="textfield" resi required></textarea>
                 <label for="gambar">Gambar</label>
                 <input type="file" name="gambar" accept="image/*" class="inputgambar">
                 <input type="submit" name="tambah" value="Tambah Data" class="add-btn">
