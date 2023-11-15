@@ -32,7 +32,7 @@
                     echo "
                     <script>
                         alert('Registrasi Berhasil !');
-                        document.location.href = 'index.php';
+                        document.location.href = 'login.php';
                     </script>";
                 } else {
                     echo "
