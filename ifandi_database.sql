@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2023 at 01:41 PM
+-- Generation Time: Nov 15, 2023 at 03:57 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,8 +40,10 @@ CREATE TABLE `rating` (
 --
 
 INSERT INTO `rating` (`id_rating`, `uid`, `id_resep`, `rating`, `komentar`) VALUES
-(3, 3, 2, 4, 'bvjasbjv'),
-(4, 3, 3, 3, 'kelass');
+(3, 3, 2, 3, 'kayak asu'),
+(4, 3, 3, 3, 'kelass'),
+(6, 4, 2, 5, 'kayak ifandi'),
+(7, 5, 2, 5, '');
 
 -- --------------------------------------------------------
 
@@ -54,6 +56,8 @@ CREATE TABLE `resep` (
   `uid` int(11) NOT NULL,
   `nama_resep` varchar(255) NOT NULL,
   `deskripsi` varchar(255) NOT NULL,
+  `instruksi` varchar(255) NOT NULL,
+  `bahan` varchar(255) NOT NULL,
   `gambar` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -61,12 +65,12 @@ CREATE TABLE `resep` (
 -- Dumping data for table `resep`
 --
 
-INSERT INTO `resep` (`id_resep`, `uid`, `nama_resep`, `deskripsi`, `gambar`) VALUES
-(2, 3, 'Nasi Goreng', 'Nasi dengan cita rasa bumbu ala tenggarong yang diambli dari resep leluhur chef Ifandi', '2023-11-14 09-46-24.Nasi Goreng.jpg'),
-(3, 3, 'Roti', 'Itu pastel anjay', '2023-11-14 09-49-02.Roti.jpg'),
-(4, 1, 'MMK', 'yang tau tau aja', 'NoImage.png'),
-(5, 1, 'logo', 'Tampang Rupawan Chef', 'ifandi.jpg'),
-(6, 1, 'lasagna', 'Makanan favorit kucing oren gendut', 'NoImage.png');
+INSERT INTO `resep` (`id_resep`, `uid`, `nama_resep`, `deskripsi`, `instruksi`, `bahan`, `gambar`) VALUES
+(2, 3, 'Nasi Goreng', 'Nasi dengan cita rasa bumbu ala tenggarong yang diambli dari resep leluhur chef Ifandi', '- Nikahkan Ayam dan Ifandi\r\n- Buat anak\r\n- titit', '- Ifandi\r\n-Ayam', '2023-11-15 10-16-55.Nasi Goreng.jpg'),
+(3, 3, 'Roti', 'Itu pastel anjay', '', '', '2023-11-14 09-49-02.Roti.jpg'),
+(4, 1, 'MMK', 'yang tau tau aja', '', '', 'NoImage.png'),
+(5, 1, 'logo', 'Tampang Rupawan Chef', '', '', 'ifandi.jpg'),
+(6, 1, 'lasagna', 'Makanan favorit kucing oren gendut', '', '', 'NoImage.png');
 
 -- --------------------------------------------------------
 
@@ -88,7 +92,9 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`uid`, `username`, `email`, `password`) VALUES
 (1, 'admin', 'admin@gmail.com', '$2y$10$V8k9G383svAvc0JZVOAqpO0OOL2Yh9.eoF4dVQNSPwGiWkxxqkrRG'),
 (2, 'Aldi', 'aldisolihin12@gmail.com', '$2y$10$62wAyDSsNzKVqOVsrieTPu5mYXhQQzbMjnS4kC55OJ/K0nbU6Y5sa'),
-(3, 'ifandi', 'ifandi@gmail.com', '$2y$10$NADZES63/XLCSxCk43ya7eqMBx6hQJalYy6gMnhW6dm4xNZYtd0.S');
+(3, 'ifandi', 'ifandi@gmail.com', '$2y$10$NADZES63/XLCSxCk43ya7eqMBx6hQJalYy6gMnhW6dm4xNZYtd0.S'),
+(4, 'bima', 'bima@gmail.com', '$2y$10$2eON/Kd80xwGGuwTu/kN4ezsazglHfspsA5EwwFzkjkc8p2XTyEzW'),
+(5, 'bima2', 'bima2@gmail.com', '$2y$10$mTWYcuyIGdx3kd.Qt4f68esdVRXguMR/SH.yZVMVN5mHhaK8kIv7u');
 
 --
 -- Indexes for dumped tables
@@ -123,7 +129,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `id_rating` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_rating` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `resep`
@@ -135,7 +141,7 @@ ALTER TABLE `resep`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
