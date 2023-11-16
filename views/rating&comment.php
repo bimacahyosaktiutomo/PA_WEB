@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $rating = $_POST['rate_' . $id_resep];
     } else {
         echo "Error: Rating key is not present in the POST data.";
+        header("Location: resep.php?id=$id_resep");
         exit();
     }
 
@@ -23,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $comment = $_POST['comment_' . $id_resep];
     } else {
         echo "Error: Comment key is not present in the POST data.";
+        header("Location: resep.php?id=$id_resep");
         exit();
     }
 
