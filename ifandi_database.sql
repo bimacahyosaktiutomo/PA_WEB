@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2023 at 03:57 PM
+-- Generation Time: Nov 16, 2023 at 05:37 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -43,7 +43,8 @@ INSERT INTO `rating` (`id_rating`, `uid`, `id_resep`, `rating`, `komentar`) VALU
 (3, 3, 2, 3, 'kayak asu'),
 (4, 3, 3, 3, 'kelass'),
 (6, 4, 2, 5, 'kayak ifandi'),
-(7, 5, 2, 5, '');
+(7, 5, 2, 5, ''),
+(8, 3, 4, 5, 'wow rasanya sungguh seperto mmk\r\n');
 
 -- --------------------------------------------------------
 
@@ -129,7 +130,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `id_rating` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_rating` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `resep`
