@@ -3,7 +3,7 @@
      require "../include/connect.php";
  
      if(!isset($_SESSION['username'])){
-         header("Location: index.php");
+         header("Location: ../index.php");
          exit;
      }
 
@@ -51,7 +51,7 @@
             </form>
         </div>
         <div>
-            <a href="index.php">
+            <a href="../index.php">
                 <i class="fa-solid fa-arrow-left" id="menuicn"></i>
             </a>
         </div>

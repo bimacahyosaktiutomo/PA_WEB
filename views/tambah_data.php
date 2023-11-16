@@ -11,7 +11,7 @@
 
     $uid = $_GET['id'];
     if(!isset($uid)){
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit;
     }
 

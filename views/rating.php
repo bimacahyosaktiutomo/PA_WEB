@@ -40,7 +40,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <header>
         <nav class="navbar shadow" id="navbar">
             <div>
-                <a href="index.php"><img src="../assets/ifandi.png" alt="logo" class="webicon" id="webicon"></a>
+                <a href="../index.php"><img src="../assets/ifandi.png" alt="logo" class="webicon" id="webicon"></a>
             </div>
             <ul class="menu" id="menu">
                 <li><a class="navitems" href="#home">Home</a></li>

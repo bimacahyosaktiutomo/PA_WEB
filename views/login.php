@@ -3,7 +3,7 @@
     require '../include/connect.php';
 
     if(isset($_SESSION['admin'])  or isset($_SESSION['username'])){
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit;
     }
 
@@ -70,7 +70,7 @@
                 // $_SESSION['login'] = true;
                 $_SESSION['username'] = $username;
 
-                header("Location: index.php");
+                header("Location: ../index.php");
                 exit;
             }    
         }

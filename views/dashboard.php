@@ -3,7 +3,7 @@ session_start();
 require "../include/connect.php";
 
 if (!isset($_SESSION['admin'])) {
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit;
 }
 
@@ -60,7 +60,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <h3> Dashboard</h3>
                     </div>
                     <div class="nav-option logout">
-                        <a href="index.php">
+                        <a href="../index.php">
                             <i class="fa-solid fa-arrow-left"></i>
                             <h3>Kembali</h3>
                         </a>

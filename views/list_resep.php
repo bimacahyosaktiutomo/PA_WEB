@@ -49,11 +49,11 @@ while ($row = mysqli_fetch_assoc($result)) {
     <header id="home">
         <nav class="navbar shadow" id="navbar">
             <div>
-                <a href="index.php"><img src="../assets/ifandi.png" alt="logo" class="webicon" id="webicon"></a>
+                <a href="../index.php"><img src="../assets/ifandi.png" alt="logo" class="webicon" id="webicon"></a>
             </div>
             <ul class="menu" id="menu">
-                <li><a class="navitems" href="index.php#home">Home</a></li>
-                <li><a class="navitems" href="index.php#news">Favorit</a></li>
+                <li><a class="navitems" href="../index.php#home">Home</a></li>
+                <li><a class="navitems" href="../index.php#news">Favorit</a></li>
                 <?php
                 if (isset($_SESSION['username'])) {
                     echo "<li><a class='navitems' href='lihat_data.php?id=$uid'>Kelola Resep Anda</a></li>";

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "../include/connect.php";
+require "include/connect.php";
 
 $navText = "Login";
 if (isset($_SESSION['username'])) {
@@ -42,8 +42,8 @@ while ($row = mysqli_fetch_assoc($result)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ifandi's Taste</title>
-    <link rel="icon" href="../assets/webicon.png">
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="icon" href="assets/webicon.png">
+    <link rel="stylesheet" href="styles/style.css">
     <script src="https://kit.fontawesome.com/9746b2e4c8.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
@@ -52,20 +52,20 @@ while ($row = mysqli_fetch_assoc($result)) {
     <header id="home">
         <nav class="navbar shadow" id="navbar">
             <div>
-                <a href="index.php"><img src="../assets/ifandi.png" alt="logo" class="webicon" id="webicon"></a>
+                <a href="index.php"><img src="assets/ifandi.png" alt="logo" class="webicon" id="webicon"></a>
             </div>
             <ul class="menu" id="menu">
                 <li><a class="navitems" href="#home">Home</a></li>
                 <li><a class="navitems" href="#news">Favorit</a></li>
-                <li><a class="navitems" href="list_resep.php">List Resep</a></li>
+                <li><a class="navitems" href="views/list_resep.php">List Resep</a></li>
                 <?php
                 if (isset($_SESSION['username'])) {
-                    echo "<li><a class='navitems' href='lihat_data.php?id=$uid'>Kelola Resep Anda</a></li>";
+                    echo "<li><a class='navitems' href='views/lihat_data.php?id=$uid'>Kelola Resep Anda</a></li>";
                 }
                 ?>
                 <?php
                 if (isset($_SESSION['admin'])) {
-                    echo "<li><a class='navitems' href='dashboard.php'>Dashboard</a></li>";
+                    echo "<li><a class='navitems' href='views/dashboard.php'>Dashboard</a></li>";
                 }
                 ?>
                 <div class="menumode">
@@ -80,9 +80,9 @@ while ($row = mysqli_fetch_assoc($result)) {
                 <?php
                 if (isset($_SESSION['username']) or isset($_SESSION['admin'])) {
                     echo "<h3>$navText</h3>";
-                    echo "<a href='logout.php'><button type='button' class='btn-login'>Logout</button></a>";
+                    echo "<a href='views/logout.php'><button type='button' class='btn-login'>Logout</button></a>";
                 } else {
-                    echo "<a href='login.php'><button type='button' class='btn-login'>$navText</button></a>";
+                    echo "<a href='views/login.php'><button type='button' class='btn-login'>$navText</button></a>";
                 }
                 ?>
             </ul>
@@ -103,7 +103,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                         Inilah tempatnya segala resep masakan enak! Ifandi telah menyiapkan beragam hidangan seru bergaya rumahan, tepat sebagai masakan sehari-hari.
                     </p>
                     <div class="searchbar">
-                        <form action="list_resep.php#listResep" method="post" style="display: flex;">
+                        <form action="views/list_resep.php#listResep" method="post" style="display: flex;">
                             <input type="text" name="keyword" placeholder="Search">
                             <div class="searchbtn">
                                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -111,7 +111,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                         </form>
                     </div>
                     <ul class="text">
-                        <li><a href="list_resep.php" id="download">Jelajahi Resep</a></li>
+                        <li><a href="views/list_resep.php" id="download">Jelajahi Resep</a></li>
                     </ul>
                 </div>
                 <!-- <img src="../assets/Paimon.png" alt="paimon"> -->
@@ -157,14 +157,14 @@ while ($row = mysqli_fetch_assoc($result)) {
                         pengetahuanmu tentang berbagai resep, kamu bisa menginspirasi banyak orang untuk mengeksplorasi dunia kuliner dengan lebih luas.
                     </p>
                 </div>
-                <img src="../assets/italianfood.jpg" alt="">
+                <img src="assets/italianfood.jpg" alt="">
             </div>
         </section>
     </header>
     <footer>
         <p>Copyright © Ifandi's Taste. All Rights Reserved.</p>
     </footer>
-    <script src="../scripts/javascript.js"></script>
+    <script src="scripts/javascript.js"></script>
 </body>
 
 </html>
