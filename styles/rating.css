@@ -368,10 +368,6 @@ form .btn-rating button:hover{
     padding: 5px;
 }
 
-.konten-isi1 {
-    width: 100%;
-}
-
 @media (orientation: portrait) {
     .rating-container {
         width: 90%;
