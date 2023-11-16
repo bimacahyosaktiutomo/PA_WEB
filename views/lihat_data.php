@@ -52,39 +52,12 @@
         </div>
         <div>
             <a href="index.php">
-                <i class="fa-solid fa-bars fa-lg icn menuicn" id="menuicn"></i>
+                <i class="fa-solid fa-arrow-left" id="menuicn"></i>
             </a>
         </div>
     </header>
 
     <div class="main-container">
-        <!-- <div class="navcontainer">
-            <nav class="nav">
-                <div class="nav-upper-options">
-                    <div class="nav-option option1">
-                        <i class="fa-solid fa-table-columns"></i>
-                        <h3> Dashboard</h3>
-                    </div>
-                    <div class="nav-option logout">
-                        <a href="index.php">
-                            <i class="fa-solid fa-newspaper"></i>
-                            <h3>Kembali</h3>
-                        </a>
-                    </div>
-                    <div class="nav-option option3">
-                        <i class="fa-solid fa-newspaper"></i>
-                        <h3> Settings</h3>
-                    </div>
-                    <div class="nav-option logout">
-                        <a href="logout.php">
-                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                            <h3>Logout</h3>
-                        </a>
-                    </div>
-
-                </div>
-            </nav>
-        </div> -->
         <div class="main">
             <div class="searchbar2">
                 <input type="text" name="" id="" placeholder="Search">
@@ -108,6 +81,8 @@
                                 <th><h3 class="t-op">ID Resep</h3></th>
                                 <th><h3 class="t-op">Nama Resep</h3></th>
                                 <th><h3 class="t-op">Deskripsi</h3></th>
+                                <th><h3 class="t-op">Bahan</h3></th>
+                                <th><h3 class="t-op">Instruksi</h3></th>
                                 <th><h3 class="t-op">Gambar</h3></th>
                                 <th><h3 class="t-op">Aksi</h3></th>
                             </tr>
@@ -119,6 +94,8 @@
                                 <td><?php echo $rsp['id_resep']; ?></td>
                                 <td><?php echo $rsp['nama_resep']; ?> </td>
                                 <td><?php echo $rsp['deskripsi']; ?></td> 
+                                <td><?php echo $rsp['bahan']; ?></td> 
+                                <td><?php echo $rsp['instruksi']; ?></td> 
                                 <td><img src="../assets/uploadedImg/<?php echo $rsp['gambar']; ?>" alt="" height="100px"></td>                                
                                 <td class="action">
                                     <a href="edit_data.php?id=<?php echo $rsp['id_resep']?>"><button class="edit-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="white"><path d="M200-200h56l345-345-56-56-345 345v56Zm572-403L602-771l56-56q23-23 56.5-23t56.5 23l56 56q23 23 24 55.5T829-660l-57 57Zm-58 59L290-120H120v-170l424-424 170 170Zm-141-29-28-28 56 56-28-28Z"/></svg></button></a>

@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_num_rows($checkResult) > 0) {
         $updateQuery = "UPDATE rating SET rating = '$rating', komentar = '$comment' WHERE uid = '$uid' AND id_resep = '$id_resep'";
         if (mysqli_query($conn, $updateQuery)) {
-            header("Location: rating.php");
+            header("Location: resep.php?id=$id_resep");
             exit();
         } else {
             echo "Error updating record: " . mysqli_error($conn);
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $insertQuery = "INSERT INTO rating VALUES ('', '$uid', '$id_resep', '$rating', '$comment')";
         if (mysqli_query($conn, $insertQuery)) {
-            header("Location: rating.php");
+            header("Location: resep.php?id=$id_resep");
             exit();
         } else {
             echo "Error inserting record: " . mysqli_error($conn);

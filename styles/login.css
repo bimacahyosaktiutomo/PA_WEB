@@ -67,7 +67,7 @@ input{
 	justify-content: center;
 	display: block;
 	color: #fff;
-    background: #ec73e6;
+    background: black;
 	font-size: 1em;
 	font-weight: bold;
 	margin-top: 20px;
@@ -79,13 +79,13 @@ input{
 }
 
 .btn:hover{
-    background: #ff9cdc;
+    background: #4d4d4d;
 }
 
 .login{
 	height: 80vh;
 	margin-bottom: 3vh;
-    background: linear-gradient(to right top, #8ab8ff, #a6afff, #c6a3fb, #e495ec, #ff86d5);
+    background: linear-gradient(350deg, rgba(255, 255, 0, 1) 0%, rgba(255, 59, 0, 1) 100%);
 	transform: translateY(-23%);
 	transition: .8s ease-in-out;
 }

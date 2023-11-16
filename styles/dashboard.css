@@ -13,7 +13,7 @@
     --background-color1: #0000003f;
     --background-color2: #0000003f;
     --background-color3: #ededed;
-    --background-color4: linear-gradient(to right top, #8ab8ff, #a6afff, #c6a3fb, #e495ec, #ff86d5);
+    --background-color4: linear-gradient(to right top, #8ab8ff, #a6afff, #c6a3fb, #e495ec, orange);
     --primary-color: #ff89ef;
     --secondary-color: #f322c6;
     --Border-color: #970071;
@@ -24,11 +24,7 @@
 }
 
 body {
-    /* background-color: var(--background-color4); */
-    /* background: linear-gradient(to right top, #8ab8ff, #a6afff, #c6a3fb, #e495ec, #ff86d5); */
-    /* background-image: url(../assets/pinkgradient.jpeg); */
-    /* background: linear-gradient(to left top, #8ab8ff, #a6afff, #c6a3fb, #e495ec, #ff86d5); */
-    background: url(../assets/rm222-mind-22.jpg);
+    background: url(../assets/vecteezy_white-background-with-orange-geometric_11171111.jpg);
     background-size: cover;
 }
 
@@ -36,8 +32,8 @@ header {
     height: 70px;
     width: 100vw;
     padding: 0 10px;
+    background: linear-gradient(350deg, rgba(255, 255, 0, 1) 0%, rgba(255, 59, 0, 1) 100%);;
     background-color: var(--one-use-color);
-    background: linear-gradient(to right top, #8ab8ff, #a6afff, #c6a3fb, #e495ec, #ff86d5);
     position: fixed;
     z-index: 100;
     box-shadow: 1px 1px 15px rgba(161, 182, 253, 0.825);
@@ -96,7 +92,7 @@ header {
     align-items: center;
     justify-content: center;
     border-radius: 0px 10px 10px 0px;
-    background-color: #8d77eb78;
+    background-color: #acacacc8;
     cursor: pointer;
 }
 
@@ -228,6 +224,11 @@ header {
     flex-direction: column;
     align-items: center;
     gap: 30px;
+}
+
+#menuicn {
+    font-size: 30px;
+    margin-right: 10px;
 }
 
 .logout a{
@@ -369,15 +370,16 @@ table, th, td{
 }
 
 .edit-btn {
-    background-color: #fa7bb4;
+    background-color: #ffe346;
     padding: 8px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-bottom: 5px;
 }
 
 .delete-btn {
-    background-color: #e495ec;
+    background-color: #ff6430;
     padding: 8px;
     border: none;
     border-radius: 4px;
@@ -475,7 +477,7 @@ textarea {
 .inputgambar{
     margin-top: 1vh;
     max-width: 100%;
-    border: 2px solid #ff86d5;
+    border: 2px solid orange;
     border-radius: 50px;
     padding: 2px;
     margin-bottom: 3vh;
@@ -483,7 +485,7 @@ textarea {
 
 .inputgambar::-webkit-file-upload-button{
     color: white;
-    background-color: #ff86d5;
+    background-color: orange;
     border-radius: 50px;
     padding: 4px 16px;
     border: none;
@@ -492,7 +494,7 @@ textarea {
 
 .add-btn {
     cursor: pointer;
-    box-shadow: inset 400px 0 0 0 #ff86d5; 
+    box-shadow: inset 400px 0 0 0 orange; 
     padding: 8px;
     border: 3px solid transparent;
     border-radius: 5px;
@@ -502,10 +504,10 @@ textarea {
 }
 
 .add-btn:hover {
-    color: #ff86d5;
+    color: orange;
     background-color: transparent;
-    box-shadow: inset 0px 0 0 0 #ff86d5; 
-    border: 3px solid #ff86d5;
+    box-shadow: inset 0px 0 0 0 orange; 
+    border: 3px solid orange;
     transform: scale(90%);
 }
 
@@ -521,6 +523,10 @@ textarea {
 
     .nav-option h3 {
         font-size: 15px;
+    }
+
+    #waktu {
+        display: none;
     }
 
     .report-topic-heading,
@@ -589,11 +595,12 @@ textarea {
         backdrop-filter: blur(5px);
         padding: 0 20px;
         font-size: 15px;
-        border: 2px solid #8d77eb78;
+        border: 2px solid #acacacc8;
     }
 
     .add-form-container {
         width: 90vw;
+        height: 95vh;
     }
     
     .textfield {
@@ -652,7 +659,7 @@ textarea {
     }
 
     .tambah {
-        width: 60px;
+        width: 90px;
         font-size: 10px;
         height: 27px;
     }

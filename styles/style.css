@@ -14,8 +14,8 @@ body {
     --secondary-color: #202020;
     --alpha-color: rgba(0, 0, 0, 0.322);
     --text: black;
-    --accent: #B1B7DF;
-    --gradient: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    --accent: orange;
+    --gradient: linear-gradient(350deg, rgba(255, 255, 0, 1) 0%, rgba(255, 59, 0, 1) 100%);
     --accent-color: orange;
     max-width: 100%;
     background-color: var(--primary-color);
@@ -30,7 +30,7 @@ body {
 }
 
 .navbar {
-    background: var(--accent-color);
+    background: var(--gradient);
     overflow: hidden;
     position: sticky;
     display: flex;
@@ -125,8 +125,7 @@ body {
     --secondary-color: white;
     --alpha-color: rgba(0, 0, 0, 0.100);
     --text: white;
-    --accent: #E0B0CF;
-    --gradient: #010100;
+    --accent: #e0d1b0;
 }
 
 .nightmode:checked::before{
@@ -267,7 +266,7 @@ body {
         background: transparent;
         background: linear-gradient(
           0deg,
-          rgba(255, 147, 246, 0.676) 0%,
+          rgba(255, 133, 40, 0.676) 0%,
           rgba(255, 255, 255, 0) 100%
         );
         transform: translatey(100%);
@@ -349,6 +348,8 @@ body {
     padding: 10vh 5vw;
     text-align: justify;
 }
+
+
 
 .container {
     width: 100%;
@@ -467,6 +468,10 @@ body {
     transform: scale(105%);
 }
 
+.card-body {
+    justify-content: space-between;
+}
+
 .card-text{
     text-align: justify;
     padding: 0px 15px 0px 15px;
@@ -474,6 +479,10 @@ body {
 
 .star{
     color: orange;
+}
+
+.star-pad{
+    padding-bottom: 10px;
 }
 
 .card h2{
@@ -688,7 +697,7 @@ footer {
     padding-top: 5vh;
     color: white;
     text-align: center;
-    background: #fdbd2e;
+    background: #ff7f00;
     padding: 6vh;
     bottom: 0;
 }
@@ -745,16 +754,22 @@ footer {
     .menu.active {
         display: block;
         left: 0;
-        background: linear-gradient(to left top, #8ab8ff, #a6afff, #c6a3fb, #e495ec, #ff86d5);
+        /* background: linear-gradient(350deg, rgba(255, 255, 0, 1) 0%, rgba(255, 59, 0, 1) 100%); */
+        background: orange;
+    }
+
+    .btn-login {
+        margin-bottom: 20px;
+        border-radius: 10px;
     }
 
     .isi1 {
-        height: 94vh;
-        flex-direction: column-reverse;
-        justify-content: center;
-        align-items: center;
         padding-bottom: 4vh;
     } 
+
+    .searchbar {
+        display: none;
+    }
 
     .isi1 img{
         height: 60vh;
@@ -848,5 +863,13 @@ footer {
     .gambarResep {
         width: 90vw !important;
         height: 60vh !important;        
+    }
+
+    .card h2 {
+        font-size: 15px;
+    }
+
+    .card-text {
+        font-size: 12px;
     }
 }

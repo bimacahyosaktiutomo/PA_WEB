@@ -56,8 +56,8 @@ while ($row = mysqli_fetch_assoc($result)) {
             </div>
             <ul class="menu" id="menu">
                 <li><a class="navitems" href="#home">Home</a></li>
-                <li><a class="navitems" href="#news">Favorite</a></li>
-                <li><a class="navitems" href="#me">About Us</a></li>
+                <li><a class="navitems" href="#news">Favorit</a></li>
+                <li><a class="navitems" href="list_resep.php">List Resep</a></li>
                 <?php
                 if (isset($_SESSION['username'])) {
                     echo "<li><a class='navitems' href='lihat_data.php?id=$uid'>Kelola Resep Anda</a></li>";
@@ -102,6 +102,14 @@ while ($row = mysqli_fetch_assoc($result)) {
                     <p>
                         Inilah tempatnya segala resep masakan enak! Ifandi telah menyiapkan beragam hidangan seru bergaya rumahan, tepat sebagai masakan sehari-hari.
                     </p>
+                    <div class="searchbar">
+                        <form action="list_resep.php#listResep" method="post" style="display: flex;">
+                            <input type="text" name="keyword" placeholder="Search">
+                            <div class="searchbtn">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                        </form>
+                    </div>
                     <ul class="text">
                         <li><a href="list_resep.php" id="download">Jelajahi Resep</a></li>
                     </ul>
@@ -141,101 +149,21 @@ while ($row = mysqli_fetch_assoc($result)) {
         <section class="isi3">
             <div class="container">
                 <div>
-                    <h1>Neuvillette</h1>
-                    <h4>VA : Kamiya Hiroshi</h4>
-                    <p>Sang Iudex Fontaine bisa dibilang adalah seseorang yang "sulit didekati". Entah karena sifatnya, atau karena ada rahasia yang disembunyikannya.
-                        "Melihat bagaimana kolom di balik layar tentang sang Archon Hydro kami di edisi sebelumnya mendapatkan julukan terhormat "jurnalisme tabloid" dari Monsieur Neuvillette.
+                    <h1>Tentang</h1>
+                    <h4>Ifandi's Taste</h4>
+                    <p>
+                        Ifandi's Taste menyediakan resep yang menarik! Tunjukkan kemampuanmu dalam membagikan pengetahuan kuliner dan kreativitas dalam
+                        memasak. Berbagilah pengalaman dan kecintaanmu terhadap memasak dan membuat hidangan lezat. Dengan dedikasi dan 
+                        pengetahuanmu tentang berbagai resep, kamu bisa menginspirasi banyak orang untuk mengeksplorasi dunia kuliner dengan lebih luas.
                     </p>
                 </div>
                 <img src="../assets/italianfood.jpg" alt="">
             </div>
         </section>
-
-        <!-- Ga wajib -->
-        <!-- <section class="listkarakter">
-            <div class="containerchr">
-                <div class="searchbar">
-                    <form action="index.php#listResep" method="post" style="display: flex;">
-                        <input type="text" name="keyword" placeholder="Search">
-                        <div class="searchbtn">
-                            <i class="fa-solid fa-magnifying-glass"></i>                    
-                        </div>
-                    </form>
-                </div>
-                <?php if ($result->num_rows > 0) : ?>
-                    <div class="container2">
-                    <h1 id="listResep">List Resep</h1>
-                    <div class="table">
-                        <?php $i = 1;
-                        foreach ($resep as $rsp) : ?>  
-                        <a class="card shadow" href="resep.php?id=<?php echo $rsp['id_resep'] ?>">
-                            <div>
-                                <img src="../assets/uploadedImg/<?php echo $rsp['gambar']; ?>">
-                                <div class="card-body">
-                                    <h2 class="card-text"><?php echo $rsp['nama_resep']; ?></h2>                                  
-                                    <p class="card-text"><?php echo $rsp['deskripsi']; ?></p><br>
-                                </div>
-                            </div>
-                        </a>                                                    
-                        <?php $i++;
-                        endforeach; ?>
-                        </div>
-                    </div>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </section>
-        <section class="pusatlayanan">
-            <div class="kotakform shadow">
-                <h1 style="text-align: center;">Pusat Layanan</h1>
-                <form action="proses_layanan.php" method="post" enctype="multipart/form-data" id="support">
-                    <div>
-                        <label for="nama">Nama*</label>
-                        <input type="text" class="form" id="nama" name="nama" required>
-                    </div>
-                    <div>
-                        <label for="email">Email*</label>
-                        <input type="email" class="form" id="email" name="email" required>
-                    </div>
-                    <div>
-                        <label for="email">Telepon*</label>
-                        <input type="tel" class="form" id="telp" name="telp" required>
-                    </div>
-                    <div>
-                        <label for="layanan">Pilih Layanan*</label>
-                        <select class="form" id="layanan" name="layanan">
-                            <option value="Pertanyaan Umum">Pertanyaan Umum</option>
-                            <option value="Pengaduan">Pengaduan</option>
-                            <option value="Permintaan Informasi">Permintaan Informasi</option>
-                            <option value="Pengembalian Akun">Pengembalian Akun</option>
-                            <option value="Laporan Bug dan Glitch">Laporan Bug dan Glitch</option>
-                            <option value="Lainnya">Lainnya</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="pesan">Pesan*</label>
-                        <input type="text" class="form" id="pesan" name="pesan" required>
-                    </div>
-                    <div class="divinput">
-                        <label for="gambar" class="inputlabel">
-                            <p>Gambar</p><br>
-                            <img src="../assets/upload.png" alt="">
-                        </label>
-                        <input type="file" class="inputgambar" id="gambar" name="gambar">
-                    </div>
-                    <input class="btnkirim" type="submit" value="K I R I M  S E K A R A N G !">
-                </form>
-            </div>
-        </section> -->
     </header>
     <footer>
-        <p>Copyright © Aldi Solihin. All Rights Reserved.</p>
+        <p>Copyright © Ifandi's Taste. All Rights Reserved.</p>
     </footer>
-    <script>
-        $('.jdl-berita').on('click', () => {
-            $('.jdl-berita').css('color', '#FF4655')
-        })
-    </script>
     <script src="../scripts/javascript.js"></script>
 </body>
 

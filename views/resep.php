@@ -7,6 +7,15 @@ $id = $_GET['id'];
 $navText = "Login"; 
 if (isset($_SESSION['username'])) {
     $navText = $_SESSION['username'];
+    
+    $safeUsername = mysqli_real_escape_string($conn, $_SESSION['username']);
+    
+    
+    $query = "SELECT uid FROM USER WHERE username='$safeUsername'";
+    $result_id = mysqli_query($conn, $query);    
+    $row = mysqli_fetch_assoc($result_id);
+    
+    $uid = $row['uid'];    
 }
 if (isset($_SESSION['admin'])) {
     $navText = $_SESSION['admin'];
@@ -19,7 +28,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 
 
-$query = "SELECT r.rating, r.komentar FROM rating r INNER JOIN resep on r.id_resep = resep.id_resep WHERE r.id_resep = '$id'";
+$query = "SELECT r.rating, r.komentar, u.username FROM rating r INNER JOIN resep on r.id_resep = resep.id_resep INNER JOIN user u ON r.uid = u.uid WHERE r.id_resep = '$id'";
 $result = mysqli_query($conn, $query);
 
 $komentar = [];
@@ -77,56 +86,68 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <p><?php echo $rsp['deskripsi']; ?></p> 
                         <p><?php echo $rsp['instruksi']; ?></p> 
                         <p><?php echo $rsp['bahan']; ?></p> 
-                        <?php if (isset($_SESSION['username'])) : ?>
-                                <div class="rating-container" name="rating">
-                                    <div class="rating">
-                                        <form action="rating&comment.php" method="post">
-                                            <input type="radio" name="rate_<?php echo $rp['id_resep']; ?>" id="rate-5_<?php echo $rp['id_resep']; ?>" value="5">
-                                            <label for="rate-5_<?php echo $rp['id_resep']; ?>" class="fas fa-star"></label>
-
-                                            <input type="radio" name="rate_<?php echo $rp['id_resep']; ?>" id="rate-4_<?php echo $rp['id_resep']; ?>" value="4">
-                                            <label for="rate-4_<?php echo $rp['id_resep']; ?>" class="fas fa-star"></label>
-
-                                            <input type="radio" name="rate_<?php echo $rp['id_resep']; ?>" id="rate-3_<?php echo $rp['id_resep']; ?>" value="3">
-                                            <label for="rate-3_<?php echo $rp['id_resep']; ?>" class="fas fa-star"></label>
-
-                                            <input type="radio" name="rate_<?php echo $rp['id_resep']; ?>" id="rate-2_<?php echo $rp['id_resep']; ?>" value="2">
-                                            <label for="rate-2_<?php echo $rp['id_resep']; ?>" class="fas fa-star"></label>
-
-                                            <input type="radio" name="rate_<?php echo $rp['id_resep']; ?>" id="rate-1_<?php echo $rp['id_resep']; ?>" value="1">
-                                            <label for="rate-1_<?php echo $rp['id_resep']; ?>" class="fas fa-star"></label>
-                                            <header></header>
-                                            <input type="hidden" name="uid" value="<?php echo $uid; ?>">
-                                            <input type="hidden" name="id_resep" value="<?php echo $rp['id_resep']; ?>">
-                                            <div class="textarea">
-                                                <textarea name="comment_<?php echo $rp['id_resep']; ?>" cols="30" placeholder="Describe your experience.."></textarea>
-                                            </div>
-                                            <div class="btn">
-                                                <button type="submit">Post</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                        <?php endif; ?>
                     </div>
                 <?php $i++; endforeach; ?>                                        
                 </div>                
             </div>
         </section>
-        <div>
+        <div class="header-komentar"><h1>Komentar</h1><p><?php echo count($komentar) ?></p></div>
+        <section style="margin-bottom: 20px;">
+            <div class="rating-container" name="rating">
+                <div class="rating">
+                    <form action="rating&comment.php" method="post">
+                        <div class="star-rating">
+                            <input type="radio" name="rate_<?php echo $rsp['id_resep']; ?>" id="rate-5_<?php echo $rsp['id_resep']; ?>" value="5">
+                            <label for="rate-5_<?php echo $rsp['id_resep']; ?>" class="fas fa-star"></label>
+
+                            <input type="radio" name="rate_<?php echo $rsp['id_resep']; ?>" id="rate-4_<?php echo $rsp['id_resep']; ?>" value="4">
+                            <label for="rate-4_<?php echo $rsp['id_resep']; ?>" class="fas fa-star"></label>
+
+                            <input type="radio" name="rate_<?php echo $rsp['id_resep']; ?>" id="rate-3_<?php echo $rsp['id_resep']; ?>" value="3">
+                            <label for="rate-3_<?php echo $rsp['id_resep']; ?>" class="fas fa-star"></label>
+
+                            <input type="radio" name="rate_<?php echo $rsp['id_resep']; ?>" id="rate-2_<?php echo $rsp['id_resep']; ?>" value="2">
+                            <label for="rate-2_<?php echo $rsp['id_resep']; ?>" class="fas fa-star"></label>
+
+                            <input type="radio" name="rate_<?php echo $rsp['id_resep']; ?>" id="rate-1_<?php echo $rsp['id_resep']; ?>" value="1">
+                            <label for="rate-1_<?php echo $rsp['id_resep']; ?>" class="fas fa-star"></label>
+                        </div>
+                        <header></header>
+                        <input type="hidden" name="uid" value="<?php echo $uid; ?>">
+                        <input type="hidden" name="id_resep" value="<?php echo $rsp['id_resep']; ?>">
+                        <div class="textarea">
+                            <textarea name="comment_<?php echo $rsp['id_resep']; ?>" cols="80" placeholder="Berikan tanggapanmu.."></textarea>
+                        </div>
+                        <div class="btn-rating">
+                            <button type="submit">KIRIM</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section>
             <?php foreach ($komentar as $kmn) : ?>
-                <!-- <p><?php echo $kmn['rating']; ?></p> -->
-                <?php
-                    $averageRating = $kmn['rating'];
-                    for ($j = 0; $j < 5; $j++) {
-                    $starClass = ($j < $averageRating) ? 'star' : 'empty-star';
-                    echo '<span class="' . $starClass . '">&#9733</span>';
-                    }
-                ?>
-                <p><?php echo $kmn['komentar']; ?></p>
-            <?php endforeach; ?>
-        </div>
+                <div class="box-komentar">
+                    <div class="review">
+                        <div class="name-komentar"><?php echo $kmn['username']; ?></div>
+                        <div class="text-komentar">
+                            <div class="bintang-komentar">
+                            <?php
+                                $averageRating = $kmn['rating'];
+                                for ($j = 0; $j < 5; $j++) {
+                                $starClass = ($j < $averageRating) ? 'star' : 'empty-star';
+                                echo '<span class="' . $starClass . '">&#9733</span>';
+                                }
+                            ?>
+                            </div>
+                            <p><?php echo $kmn['komentar']; ?></p>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+        </section>
     </header>
     <script src="../scripts/javascript.js"></script>
+    <script src="../scripts/rating.js"></script>
 </body>
 </html>

@@ -53,12 +53,10 @@ while ($row = mysqli_fetch_assoc($result)) {
             </div>
             <ul class="menu" id="menu">
                 <li><a class="navitems" href="index.php#home">Home</a></li>
-                <li><a class="navitems" href="index.php#news">Favorite</a></li>
-                <li><a class="navitems" href="index.php#me">About Us</a></li>
+                <li><a class="navitems" href="index.php#news">Favorit</a></li>
                 <?php
                 if (isset($_SESSION['username'])) {
-                    echo "<li><a class='navitems' href='tambah_data.php?id=$uid'>Buat Resep</a></li>";
-                    echo "<li><a class='navitems' href='lihat_data.php?id=$uid'>Lihat Resep</a></li>";
+                    echo "<li><a class='navitems' href='lihat_data.php?id=$uid'>Kelola Resep Anda</a></li>";
                 }
                 ?>
                 <?php
@@ -114,9 +112,11 @@ while ($row = mysqli_fetch_assoc($result)) {
                                     <div>
                                         <img src="../assets/uploadedImg/<?php echo $rsp['gambar']; ?>">
                                         <div class="card-body">
-                                            <h2 class="card-text"><?php echo $rsp['nama_resep']; ?></h2>
-                                            <p class="card-text"><?php echo $rsp['deskripsi']; ?></p><br>
-                                            <div class="card-text">
+                                            <div>
+                                                <h2 class="card-text"><?php echo $rsp['nama_resep']; ?></h2>
+                                                <p class="card-text"><?php echo $rsp['deskripsi']; ?></p>
+                                            </div>
+                                            <div class="card-text star-pad">
                                                 <?php
                                                     $result = mysqli_query($conn, "SELECT resep.id_resep, IFNULL(ROUND(AVG(rating)), 0) AS avg_rating, CAST(AVG(rating) AS DECIMAL(10,1)) AS rata_rata FROM rating 
                                                                                 RIGHT JOIN resep ON rating.id_resep = resep.id_resep WHERE resep.id_resep = " . $rsp['id_resep'] . "
@@ -143,7 +143,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             </div>
         </section>
     </header>
-
+    <script src="../scripts/javascript.js"></script>
 </body>
 
 </html>
