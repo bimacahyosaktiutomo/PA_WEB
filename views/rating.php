@@ -24,6 +24,7 @@ $resep = [];
 while ($row = mysqli_fetch_assoc($result)) {
     $resep[] = $row;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -129,7 +130,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                                         </form>
                                     </div>
                                 </div>
-                    <?php endif; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             <?php endforeach; ?>
