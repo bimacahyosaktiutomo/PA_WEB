@@ -38,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             echo "Error updating record: " . mysqli_error($conn);
+            header("Location: resep.php?id=$id_resep");
         }
     } else {
         $insertQuery = "INSERT INTO rating VALUES ('', '$uid', '$id_resep', '$rating', '$comment')";
@@ -45,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: resep.php?id=$id_resep");
             exit();
         } else {
+            header("Location: resep.php?id=$id_resep");
             echo "Error inserting record: " . mysqli_error($conn);
         }
     }
