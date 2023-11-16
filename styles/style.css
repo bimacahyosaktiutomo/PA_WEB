@@ -165,7 +165,7 @@ body {
 }
 
 .konten-isi1 {
-    width: 70%;
+    width: 70% !important;
     display: flex;
     flex-direction: column;
     gap: 3vh;
@@ -774,6 +774,10 @@ footer {
     .isi1 img{
         height: 60vh;
         width: auto;
+    }
+
+    .konten-isi1 {
+        width: 100% !important;
     }
 
     .konten-isi1 h1 {
