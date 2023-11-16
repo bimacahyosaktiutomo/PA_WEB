@@ -15,12 +15,11 @@
         exit;
     }
 
-    if(!$isset)
-    $gambar_lama = mysqli_query($conn, "SELECT gambar FROM resep where id = $id"); 
+    $gambar_lama = mysqli_query($conn, "SELECT gambar FROM resep where id_resep = $id"); 
     $row = mysqli_fetch_assoc($gambar_lama);
     $nama_file = $row['gambar'];
 
-    $get = mysqli_query($conn, "DELETE FROM resep WHERE id = $id");
+    $get = mysqli_query($conn, "DELETE FROM resep WHERE id_resep = $id");
     $karakter = [];
 
     $lokasi_file = '../assets/uploadedImg/' . $nama_file; 
